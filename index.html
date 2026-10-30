@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>自来水厂净水过程</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.186.1/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.186.1/examples/jsm/",
+      "lil-gui": "https://unpkg.com/lil-gui@0.19.2/dist/lil-gui.esm.js"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div id="app">
+    <header id="topbar">
+      <div class="brand">
+        <span class="mark" aria-hidden="true"></span>
+        <div class="brand-text">
+          <h1>自来水厂净水过程</h1>
+          <p class="sub">市政净水厂数字孪生 · Lagoon 海岸</p>
+        </div>
+      </div>
+      <div class="top-meta">
+        <span class="stat-chip"><span class="stat-label">工艺段</span><span class="stat-value" id="stat-stages">8</span></span>
+        <span class="stat-chip"><span class="stat-label">选中</span><span class="stat-value" id="stat-selected">—</span></span>
+      </div>
+      <div class="top-divider" aria-hidden="true"></div>
+      <div class="top-actions">
+        <button type="button" id="btn-tour" class="btn btn-ghost">自动巡游</button>
+      </div>
+    </header>
+
+    <aside id="stage-rail" aria-label="工艺阶段">
+      <div class="rail-label">工艺流程</div>
+      <nav id="stage-list" class="stage-nav"></nav>
+      <div class="rail-rule"></div>
+      <div class="rail-label">净化方法</div>
+      <div id="method-legend" class="method-legend"></div>
+    </aside>
+
+    <main id="viewport">
+      <canvas id="c"></canvas>
+      <div id="tooltip" hidden></div>
+      <p id="hud-hint">点击阶段查看说明 · 拖拽旋转 · 滚轮缩放</p>
+    </main>
+
+    <aside id="side-panel" class="detail-sheet" aria-label="阶段说明" hidden>
+      <div class="sheet-head">
+        <div class="crumb">
+          <span class="crumb-parent">工艺流程</span>
+          <span class="crumb-sep">/</span>
+          <h2 id="detail-title">选择阶段</h2>
+          <span id="detail-chip" class="type-chip" hidden></span>
+        </div>
+        <button type="button" id="btn-close-panel" class="btn btn-ghost btn-icon" title="关闭">关闭</button>
+      </div>
+      <div class="sheet-rule"></div>
+      <p id="detail-anno" class="anno"></p>
+      <p id="detail-body" class="body"></p>
+      <p id="detail-method" class="method-pill" hidden></p>
+    </aside>
+
+    <aside id="gui-host" aria-label="参数"></aside>
+  </div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

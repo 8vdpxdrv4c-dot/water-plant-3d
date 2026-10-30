@@ -1,0 +1,120 @@
+/**
+ * stages.js — 8 purification stages + callout labels for product-viz
+ */
+export const STAGES = [
+  {
+    id: 'intake',
+    index: 0,
+    name: '天然水 / 取水口',
+    short: '取水口',
+    callout: '取水口',
+    annotation: '从河流、水库等天然水源取水，进入净水厂管网。',
+    detail: '天然水经取水口进入处理系统，是整条净水工艺线的起点。',
+    method: null,
+    accent: 0x2b9fff,
+    camOffset: { x: -5, y: 10, z: 13 },
+  },
+  {
+    id: 'flocculant',
+    index: 1,
+    name: '加絮凝剂',
+    short: '加絮凝剂',
+    callout: '加药池',
+    annotation: '吸附水中悬浮的杂质',
+    detail: '投加絮凝剂，使细小悬浮颗粒聚集成较大絮体，便于后续沉淀去除。',
+    method: '吸附',
+    accent: 0x2b9fff,
+    camOffset: { x: -4, y: 9, z: 12 },
+  },
+  {
+    id: 'sedimentation',
+    index: 2,
+    name: '反应沉淀池',
+    short: '沉淀池',
+    callout: '反应池',
+    annotation: '沉降杂质',
+    detail: '絮体在反应沉淀池中缓慢沉降，除去水中大部分不溶性杂质。',
+    method: '沉淀',
+    accent: 0x2b9fff,
+    camOffset: { x: -2, y: 11, z: 14 },
+  },
+  {
+    id: 'filtration',
+    index: 3,
+    name: '过滤池',
+    short: '过滤池',
+    callout: '过滤池',
+    annotation: '除去不溶性杂质',
+    detail: '水流经砂滤 / 滤料层，进一步截留残留悬浮物与不溶性杂质。',
+    method: '过滤',
+    accent: 0x2b9fff,
+    camOffset: { x: 0, y: 10, z: 12 },
+  },
+  {
+    id: 'carbon',
+    index: 4,
+    name: '活性炭吸附池',
+    short: '活性炭池',
+    callout: '活性炭',
+    annotation: '除去可溶性杂质，色素、异味',
+    detail: '活性炭多孔表面吸附可溶性有机物、色素与异味，提升感官水质。',
+    method: '吸附',
+    accent: 0x2b9fff,
+    camOffset: { x: 2, y: 11, z: 13 },
+  },
+  {
+    id: 'disinfection',
+    index: 5,
+    name: '投药消毒',
+    short: '投药消毒',
+    callout: '消毒',
+    annotation: '用 ClO₂、Cl₂ 杀细菌、病毒。化学变化',
+    detail: '投加二氧化氯或氯气等消毒剂，杀灭细菌与病毒，属化学变化过程。',
+    method: null,
+    accent: 0x2b9fff,
+    camOffset: { x: 3, y: 9, z: 11 },
+  },
+  {
+    id: 'clean',
+    index: 6,
+    name: '清水池 + 配水泵',
+    short: '清水池',
+    callout: '清水池',
+    annotation: '储存达标清水，经配水泵加压送出。',
+    detail: '处理后的清水暂存于清水池，由配水泵加压进入市政供水管网。',
+    method: null,
+    accent: 0x2b9fff,
+    camOffset: { x: 5, y: 10, z: 13 },
+  },
+  {
+    id: 'users',
+    index: 7,
+    name: '用户',
+    short: '用户',
+    callout: '用户',
+    annotation: '清洁自来水送达居民小区与用户。',
+    detail: '市政管网将达标饮用水输送至住宅、公建等用户终端。',
+    method: null,
+    accent: 0x2b9fff,
+    camOffset: { x: 7, y: 12, z: 15 },
+  },
+];
+
+export const METHODS = [
+  { id: 'sedimentation', name: '沉淀', degree: 1, desc: '除去水中不溶性杂质' },
+  { id: 'adsorption', name: '吸附', degree: 2, desc: '除去水中不溶性杂质和可溶性杂质，除去色素和异味' },
+  { id: 'filtration', name: '过滤', degree: 3, desc: '除去水中不溶性杂质' },
+  {
+    id: 'distillation',
+    name: '蒸馏',
+    degree: 4,
+    desc: '除去水中不溶性杂质和可溶性杂质并杀菌消毒（对比信息，非厂内单元）',
+    infoOnly: true,
+  },
+];
+
+export const STAGE_SPACING = 10.5;
+export function stagePosition(index) {
+  const startX = -STAGE_SPACING * 3.5;
+  return { x: startX + index * STAGE_SPACING, y: 0, z: 0 };
+}
